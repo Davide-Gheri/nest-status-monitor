@@ -83,7 +83,7 @@ export class StatusMonitorModule {
       return {
         provide: STATUS_MONITOR_OPTIONS_PROVIDER,
         useFactory: async (...args: any) => {
-          const config = createConfig(await options.useFactory(args));
+          const config = createConfig(await options.useFactory(...args));
           Reflect.defineMetadata(PATH_METADATA, config.path, StatusMonitorController);
           return config;
         },
