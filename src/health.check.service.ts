@@ -1,15 +1,15 @@
 import { Injectable, Inject } from '@nestjs/common';
 import axios from 'axios';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
-import { StatusMonitorConfiguration } from './config/status.monitor.configuration';
-import { HealthCheckConfiguration } from './config/health.check.configuration';
+import { StatusMonitorOptions } from './interfaces/status-monitor-module-options.interface';
+import { HealthCheckOptions } from './interfaces/health-check-options.interface';
 
 @Injectable()
 export class HealthCheckService {
-  healthChecks: HealthCheckConfiguration[] = [];
+  healthChecks: HealthCheckOptions[] = [];
 
   constructor(
-    @Inject(STATUS_MONITOR_OPTIONS_PROVIDER) config: StatusMonitorConfiguration,
+    @Inject(STATUS_MONITOR_OPTIONS_PROVIDER) config: StatusMonitorOptions,
   ) {
     this.healthChecks = config.healthChecks;
   }

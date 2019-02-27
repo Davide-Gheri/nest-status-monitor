@@ -1,5 +1,7 @@
-const configuration = {
-  title: 'Express Status',
+import { StatusMonitorOptions } from './interfaces/status-monitor-module-options.interface';
+
+const configuration: StatusMonitorOptions & { theme: string; } = {
+  pageTitle: 'Express Status',
   theme: 'default.css',
   path: '/status',
   spans: [
@@ -17,8 +19,6 @@ const configuration = {
     },
   ],
   port: null,
-  websocket: null,
-  iframe: false,
   chartVisibility: {
     cpu: true,
     mem: true,
@@ -27,7 +27,7 @@ const configuration = {
     rps: true,
     statusCodes: true,
   },
-  ignoreStartsWith: '/admin',
+  ignoreStartsWith: null,
   healthChecks: [],
 };
 

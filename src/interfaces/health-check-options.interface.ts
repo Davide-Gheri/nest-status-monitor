@@ -1,4 +1,5 @@
-export interface HealthCheckConfiguration {
+
+export interface HealthCheckOptions {
   protocol: string;
   host: string;
   path: string;
