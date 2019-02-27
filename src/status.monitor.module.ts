@@ -17,7 +17,7 @@ import {
   StatusMonitorOptionsFactory,
   StatusMonitorAsyncOptions
 } from './interfaces/status-monitor-module-options.interface';
-import { createConfig } from './createConfig';
+import { createConfig } from './config/createConfig';
 
 @Module({
   controllers: [StatusMonitorController],

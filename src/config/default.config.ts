@@ -1,4 +1,4 @@
-import { StatusMonitorOptions } from './interfaces/status-monitor-module-options.interface';
+import { StatusMonitorOptions } from '../interfaces/status-monitor-module-options.interface';
 
 const configuration: StatusMonitorOptions & { theme: string; } = {
   pageTitle: 'Express Status',

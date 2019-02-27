@@ -1,5 +1,5 @@
 import defaultConfig from './default.config';
-import { StatusMonitorOptions } from './interfaces/status-monitor-module-options.interface';
+import { StatusMonitorOptions } from '../interfaces/status-monitor-module-options.interface';
 
 export function createConfig(
   {
