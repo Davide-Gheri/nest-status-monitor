@@ -3,9 +3,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import Handlebars from 'handlebars';
 import { HealthCheckService } from './health.check.service';
-import { PATH_METADATA } from '@nestjs/common/constants';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
-import { StatusMonitorConfiguration } from './config/status.monitor.configuration';
+import { StatusMonitorOptions } from './interfaces/status-monitor-module-options.interface';
 
 @Controller()
 export class StatusMonitorController {
@@ -14,7 +13,7 @@ export class StatusMonitorController {
 
   constructor(
     private readonly healtCheckService: HealthCheckService,
-    @Inject(STATUS_MONITOR_OPTIONS_PROVIDER) config: StatusMonitorConfiguration,
+    @Inject(STATUS_MONITOR_OPTIONS_PROVIDER) config: StatusMonitorOptions,
   ) {
     const bodyClasses = Object.keys(config.chartVisibility)
       .reduce((accumulator, key) => {
@@ -42,11 +41,6 @@ export class StatusMonitorController {
       .toString();
 
     this.render = Handlebars.compile(htmlTmpl, { strict: true });
-  }
-
-  public static forRoot(rootPath: string = 'monitor') {
-    Reflect.defineMetadata(PATH_METADATA, rootPath, StatusMonitorController);
-    return StatusMonitorController;
   }
 
   @Get()

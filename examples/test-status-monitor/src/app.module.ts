@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import {
   StatusMonitorModule,
   StatusMonitorConfiguration,
-} from '../../../dist/index';
+} from '../../../src';
 import { HealthController } from './healthController';
 
 const statusMonitorConfig: StatusMonitorConfiguration = {
@@ -55,7 +55,9 @@ const statusMonitorConfig: StatusMonitorConfiguration = {
 };
 
 @Module({
-  imports: [StatusMonitorModule.setUp(statusMonitorConfig)],
+  imports: [
+    StatusMonitorModule.forRoot(statusMonitorConfig),
+  ],
   controllers: [AppController, HealthController],
   providers: [AppService],
 })

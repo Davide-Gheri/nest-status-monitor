@@ -3,7 +3,7 @@ import * as pidusage from 'pidusage';
 import * as os from 'os';
 import { StatusMonitorGateway } from './status.monitor.gateway';
 import { STATUS_MONITOR_OPTIONS_PROVIDER } from './status.monitor.constants';
-import { StatusMonitorConfiguration } from './config/status.monitor.configuration';
+import { StatusMonitorOptions } from './interfaces/status-monitor-module-options.interface';
 
 @Injectable()
 export class StatusMonitoringService {
@@ -13,7 +13,7 @@ export class StatusMonitoringService {
     @Inject(forwardRef(() => StatusMonitorGateway))
     private readonly statusMonitorWs: StatusMonitorGateway,
     @Inject(STATUS_MONITOR_OPTIONS_PROVIDER)
-    readonly config: StatusMonitorConfiguration,
+    readonly config: StatusMonitorOptions,
   ) {
     config.spans.forEach(currentSpan => {
       const span = {

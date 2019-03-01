@@ -1,4 +1,5 @@
-export interface ChartVisibilityConfiguration {
+
+export interface ChartVisibilityOptions {
   cpu: boolean;
   mem: boolean;
   load: boolean;
